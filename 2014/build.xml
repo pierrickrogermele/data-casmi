@@ -1,0 +1,16 @@
+<project name="data.casmi.2014" default="all">
+
+	<!-- ALL -->
+	<target name="all" depends="solutions"/>
+
+	<!-- SOLUTIONS -->
+	<target name="solutions">
+		<exec executable="./parse-solutions" failonerror="true">
+			<arg value="-i"/>
+			<arg value="solutions.html"/>
+			<arg value="-o"/>
+			<arg value="solutions.csv"/>
+		</exec>
+	</target>
+
+</project>

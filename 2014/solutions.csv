@@ -1,0 +1,43 @@
+"challenge","molname","formula","pubchemid","chemspiderid"
+1,"LysoPE(18:1/0:0) [1_oleoyl_2_hydroxy_sn_glycero_3_phosphoethanolamine]","C23H46NO7P",9547071,7826021
+2,"Lipoamide","C8H15NOS2",863,840
+3,"2-hydroxyhippuric acid","C9H9NO4",10253,9835
+4,"3-nitrotyrosine","C9H10N2O5",65124,205676
+5,"5-hydroxytryptophan","C11H12N2O3",144,141
+6,"3,4-Dihydroxyphenylacetic Acid (DOPAC)","C8H8O4",547,532
+7,"Vitamin D3","C27H44O",5280795,4444353
+8,"Sucrose","C12H22O11",5988,5768
+9,"Gamma-Glutamylcysteinylglycine (reduced glutathione)","C10H17N3O6S",745,725
+10,"Adenosine-5-monophosphate","C10H14N5O7P",6083,5858
+11,"Theophylline","C7H8N4O2",2153,2068
+12,"N(6)-carboxymethyllysine","C8H16N2O4",123800,110350
+13,"Prostaglandin D2","C20H32O5",448457,395250
+14,"3-carboxysalsolinol","C11H13NO4",162692,142834
+15,"1,2,3,4-tetrahydroharmane-3-carboxylic acid","C13H14N2O2",73530,66213
+16,"N(2) Succinyl arginine","C10H18N4O5",439968,388993
+17,"Spirobrassinin","C11H10N2OS2",188830,164095
+18,"Dipyrithione","C10H8N2O2S2",3109,2998
+19,"Senkirkine","C19H27NO6",6433332,10254880
+20,"Kanzonol W","C20H16O5",15380912,24643673
+21,"Cepharatine A","C18H19NO4",51041521,26233553
+22,"Maackianin","C16H12O5",363863,82631
+23,"Streptozocin","C8H15N3O7",29327,27273
+24,"Gentamicin","C21H43N5O7",3467,3348
+25,"Fusidic acid","C31H48O6",3000226,2271900
+26,"Paeoniflorin","C23H28O11",442534,390957
+27,"Andrographolide","C20H30O5",5318517,16735664
+28,"Isoxanthoflavan-3-ol","C21H22O6",14104288,NA
+29,"Californidine","C20H20NO4+",45266443,28941458
+30,"2α, 3α-dihydroxyurs-12-en-28-oic acid (corosolic acid)","C30H48O4",21363056,9830556
+31,"peonidin","C16H13O6+",441773,390370
+32,"Ibuprofen","C13H18O2",3672,3544
+33,"Celecoxib","C17H14F3N3O2S",2662,2562
+34,"Erlotinib","C22H23N3O4",176870,154044
+35,"Hydroxy benzyl malonic acid","C10H10O5",17840182,NA
+36,"Tris(cyanoethyl)phosphine oxide","C9H12N3OP",74039,66658
+37,"Melphalan","C13H18Cl2N2O2",460612,405297
+38,"Nafoxidine","C29H31NO2",4416,4263
+39,"Methiothepin","C20H24N2S2",4106,3963
+40,"Bisphenol A","C15H16O2",6623,6371
+41,"Brodifacoum","C31H23BrO3",54680676,10444663
+42,"Phenylbutazone","C19H20N2O2",4781,4617

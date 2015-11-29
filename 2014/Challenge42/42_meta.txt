@@ -1,0 +1,3 @@
+file	type	z	ppm	precursor.file	precursor.mass
+42_MS.txt	ms	1	5		
+42_MSMS.txt	ms2	1	10	42_MS.txt	309.1604

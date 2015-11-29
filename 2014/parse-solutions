@@ -1,0 +1,87 @@
+#!/usr/bin/env Rscript
+# vi: ft=R
+args <- commandArgs(trailingOnly = F)
+script.path <- sub("--file=","",args[grep("--file",args)])
+library(getopt)
+library(XML)
+library(stringr)
+
+#############
+# CONSTANTS #
+#############
+
+PROGNAME <- sub('^.*/([^/]+)$', '\\1', commandArgs()[4], perl = TRUE)
+
+###############
+#  PRINT HELP #
+###############
+
+print.help <- function(spec) {
+	cat(getopt(spec, usage = TRUE, command = PROGNAME))
+	q(status = 0)
+}
+
+#############
+# CHECK ARG #
+#############
+
+check.arg <- function(test, msg) {
+	if ( ! test)
+		stop(msg)
+}
+
+#############
+# READ ARGS #
+#############
+
+read.args <- function() {
+
+	# options
+	spec = c(
+		'help',             'h',            0,  'logical',      'Print this help.',
+		'input-file',       'i',            1,  'character',    'Set input HTML file.',
+		'output-file',      'o',            1,  'character',    'Set output CSV file.'
+		)
+
+	spec <- matrix(spec, byrow = TRUE, ncol = 5)
+	opt <- getopt(spec)
+
+	# Check options
+	if ( ! is.null(opt$help)) print.help(spec)
+
+	# Check values
+	check.arg( ! is.null(opt[['input-file']]), "You must provide an input file.")
+	check.arg(file.exists(opt[['input-file']]), paste0('Cannot find input file "', opt[['input-file']], '".'))
+	check.arg( ! is.null(opt[['output-file']]), "You must set a path for the output file.")
+
+	return(opt)
+}
+
+##################
+# READ SOLUTIONS #
+##################
+
+read.solutions <- function(file) {
+
+	# Parse HTML
+	xml <-  htmlTreeParse(file, useInternalNodes = TRUE)
+
+	# Get Challenges
+	challenge <- xpathSApply(xml, "//td[starts-with(., ' Challenge')]", xmlValue)
+	challenge <- sub('^\\s*Challenge([0-9]+)\\s*$', '\\1', challenge, perl = TRUE)
+
+	# Get solutions
+	sol <- xpathSApply(xml, "//td[starts-with(., ' Challenge')]/../td[2]", xmlValue)
+	g <- str_match(sol, "^\\s+(.*[^\\s])\\s+(C[0-9HNOFClBrPS+]+)\\s+PubChem:\\s+([0-9]+)\\s+ChemSpider:\\s+([0-9]+|NA)\\s+$")
+	solutions <- data.frame(challenge = as.integer(challenge), molname = g[, 2], formula = g[,3], pubchemid = as.integer(g[,4]), chemspiderid = as.integer(g[,5]))
+
+	return(solutions)
+}
+
+########
+# MAIN #
+########
+
+opt <- read.args()
+solutions <- read.solutions(opt[['input-file']])
+write.csv(solutions, file = opt[['output-file']], row.names = FALSE)
