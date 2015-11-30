@@ -12,6 +12,8 @@ library(stringr)
 
 PROGNAME <- sub('^.*/([^/]+)$', '\\1', commandArgs()[4], perl = TRUE)
 
+AMINO.ACIDS <- c(4, 5, 9, 12, 37) # Challenge indices whose solution is an amino acid.
+
 ###############
 #  PRINT HELP #
 ###############
@@ -77,10 +79,22 @@ read.solutions <- function(file) {
 	return(solutions)
 }
 
+############
+# ADD INFO #
+############
+
+add.info <- function(solutions) {
+
+	solutions[['amino.acid']] <- solutions[['challenge']] %in% AMINO.ACIDS
+
+	return(solutions)
+}
+
 ########
 # MAIN #
 ########
 
 opt <- read.args()
 solutions <- read.solutions(opt[['input-file']])
+solutions <- add.info(solutions)
 write.csv(solutions, file = opt[['output-file']], row.names = FALSE)
