@@ -42,7 +42,6 @@ read.args <- function() {
 		'input-file',       'i',            1,  'character',    'Set input HTML file.',
 		'output-file',      'o',            1,  'character',    'Set output CSV file.'
 		)
-
 	spec <- matrix(spec, byrow = TRUE, ncol = 5)
 	opt <- getopt(spec)
 
